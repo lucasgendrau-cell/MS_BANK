@@ -1,0 +1,85 @@
+# =========================
+# IDE
+# =========================
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# =========================
+# Build files
+# =========================
+target/
+build/
+out/
+*.jar
+*.war
+*.ear
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# Spring Boot Configs
+# =========================
+application.yml
+application.yaml
+application-*.yml
+application-*.yaml
+
+# Config Server files
+config/*.yml
+config/*.yaml
+
+# Any YAML file (ATTENTION)
+*.yml
+*.yaml
+
+# =========================
+# Secrets & Credentials
+# =========================
+secrets/
+secret/
+credentials/
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.crt
+*.cer
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Maven
+# =========================
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
