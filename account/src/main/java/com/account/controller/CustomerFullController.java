@@ -1,5 +1,6 @@
 package com.account.controller;
 
+import com.account.dto.ClientResponse;
 import com.account.dto.CustomerFullResponse;
 import com.account.service.CustomerFullService;
 import lombok.RequiredArgsConstructor;
@@ -13,10 +14,16 @@ public class CustomerFullController {
     private final CustomerFullService customerFullService;
 
     @GetMapping("/full/{customerId}")
-    public CustomerFullResponse getCustomerFull(@PathVariable Long customerId) {
+    public ClientResponse<CustomerFullResponse> getCustomerFull(
+            @PathVariable Long customerId) {
+
         System.out.println("=== CALL /full/" + customerId + " ===");
-        CustomerFullResponse response = customerFullService.getCustomerFull(customerId);
+
+        ClientResponse<CustomerFullResponse> response =
+                customerFullService.getCustomerFull(customerId);
+
         System.out.println("=== RESPONSE READY ===");
+
         return response;
     }
 }

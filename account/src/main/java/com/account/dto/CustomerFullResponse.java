@@ -13,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerFullResponse {
 
+    private String message;
+
     private Customer customer;
 
     private List<Account> accounts;

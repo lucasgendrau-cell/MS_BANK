@@ -49,9 +49,10 @@ application-*.yaml
 config/*.yml
 config/*.yaml
 
-# Any YAML file (ATTENTION)
+# Any YAML and properties file (ATTENTION)
 *.yml
 *.yaml
+*.properties
 
 # =========================
 # Secrets & Credentials

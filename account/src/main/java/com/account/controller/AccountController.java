@@ -1,8 +1,14 @@
 package com.account.controller;
 
+import com.account.config.AccountConfig;
+import com.account.dto.Properties;
 import com.account.model.Account;
 import com.account.service.AccountService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +17,11 @@ import java.util.List;
 @RequestMapping("/api/v1/account")
 @RequiredArgsConstructor
 public class AccountController {
-
+    private final AccountConfig config;
     private final AccountService accountService;
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @GetMapping
     public List<Account> getAll() {
@@ -56,4 +65,22 @@ public class AccountController {
 
         return "Account deleted successfully";
     }
+    @GetMapping("/details/properties")
+    public ResponseEntity<Properties> getProperties() {
+        Properties properties = new Properties(
+                config.getName(),
+                config.getMsg(),
+                config.getBuild(),
+                config.getMailDetails(),
+                config.getActiveBranches()
+
+        );
+        return new ResponseEntity<>(properties, HttpStatus.OK);
+    }
+    @GetMapping("/instance")
+    public ResponseEntity<String> getServerInstance() {
+        return ResponseEntity.ok("server is running on port" + serverPort);
+    }
+
+
 }
